@@ -1,0 +1,91 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11/10/2018, 15:50:50
+    Author     : vanes
+*/
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #f0f0f0;
+    font-family: 'Roboto', sans-serif;    
+}
+/*rosinha e5759b
+cinza médio afafaf*/
+.borda {
+    border: 1px dashed #e5759b;
+    margin-bottom: 10%;
+    padding-bottom: 5%;
+}
+
+header {
+    width: 100%;
+    margin: 0 auto;
+    padding: 2%;
+}
+
+.cabecalho {
+    background-color: #333333;
+    width: 100%;
+    margin: 0 auto;
+    color: white;
+    padding: 2%;
+}
+
+h1.conteudo {
+    color: #e5759b;
+    font-size: 2em;
+    padding: 0.5%;
+}
+
+li.lista {
+    list-style-type: none;
+    text-align: left;
+    display: block;
+    padding-left: 2%;
+    border: 1px solid #f0f0f0;
+}
+
+li.listain {
+    list-style-type: none;
+    text-align: left;
+    display: block;
+    padding: 0.5%;
+    /**border: 1px solid #f0f0f0;
+    /**background-color: #f0f0f0;**/
+}
+
+header h1 {
+    color: #FFF;
+    margin: 2%;
+    font-size: 4em;
+}
+
+h2 {
+    color: #000;
+    margin: 2%;
+}
+
+nav a, nav a:active {
+        text-decoration: none;
+        color: #FFF;
+}
+
+nav a:hover {
+        text-decoration: none;
+        color: #000;
+}
+
+nav li {
+        list-style-type: none;
+        padding: 1%;
+        text-align: center;
+        display: inline;
+}
