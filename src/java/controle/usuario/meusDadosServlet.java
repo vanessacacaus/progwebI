@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import modelo.funcionario.Funcionario;
+import modelo.funcionario.FuncionarioDAO;
 import modelo.usuario.Usuario;
 import modelo.usuario.UsuarioDAO;
 
@@ -36,6 +38,9 @@ public class meusDadosServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 
                 String login = (String) session.getAttribute("login");
+                String tipo = (String) session.getAttribute("tipo");
+                
+                if(tipo.equals("usuario")){
                     UsuarioDAO dao = new UsuarioDAO();
                     Usuario usuario = new Usuario();
                     usuario = dao.obterUsuario(login);
@@ -45,6 +50,18 @@ public class meusDadosServlet extends HttpServlet {
                 
                     session.setAttribute("nome", nome); //envia atributo para proxima
                     session.setAttribute("login", login);
+                    
+                } else if(tipo.equals("funcionario")){
+                    FuncionarioDAO dao = new FuncionarioDAO();
+                    Funcionario funcionario = new Funcionario();
+                    funcionario = dao.obterFuncionario(login);
+                
+                    //criar na camada de negocio o ler o usuario, por isso aqui está nulo
+                    String nome = funcionario.getNome_funcionario();
+                
+                    session.setAttribute("nome", nome); //envia atributo para proxima
+                    session.setAttribute("login", login);
+                }
                 
                 RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/usuario/meusDados.jsp");
                 rd.forward(request, response);

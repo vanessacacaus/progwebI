@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import modelo.funcionario.FuncionarioNegocio;
 import modelo.usuario.UsuarioNegocio;
 
 /**
@@ -38,20 +39,33 @@ public class LoginServlet extends HttpServlet {
                 // entrada
                 String login = request.getParameter("login");
                 String senha = request.getParameter("senha");
+                String tipo = request.getParameter("tipo");
 
                 // processamento
                 UsuarioNegocio usuarioNegocio = new UsuarioNegocio(); // utiliza a classe de negócio para verificar se o login e senha estão corretos
                 boolean sucessoLogin = usuarioNegocio.efetuarLogin(login, senha);
-                if (sucessoLogin) { // caso o login e senha estejam corretos
+
+                FuncionarioNegocio funcionarioNegocio = new FuncionarioNegocio();
+                boolean sucessoLoginFuncionario = funcionarioNegocio.loginFuncionario(login, senha);
+                
+                if (sucessoLoginFuncionario && tipo.equals("funcionario")) { // caso o login e senha estejam corretos
                     HttpSession session = request.getSession(true); // cria e referencia a sessão do usuário
                     session.setAttribute("login", login); // coloca o atributo login na sessão do usuário
+                    session.setAttribute("tipo", tipo);
                     RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/usuario/main.jsp"); // despacha a requisição para a página main.jsp, encaminhando as instância de request e response 
                     rd.forward(request, response);
-                } else {
-                    request.setAttribute("mensagem", "Login ou Senha incorreta"); // coloca uma mensagem no objeto request
-                    RequestDispatcher rd = request.getRequestDispatcher("index.jsp"); // despacha a requisição para a página index.jsp, encaminhando as instância de request e response
-                    rd.forward(request, response);
-                }
+                    } else if(sucessoLogin && tipo.equals("usuario")){
+                        HttpSession session = request.getSession(true); // cria e referencia a sessão do usuário
+                        session.setAttribute("login", login); // coloca o atributo login na sessão do usuário
+                        session.setAttribute("tipo", tipo);
+                        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/usuario/main.jsp"); // despacha a requisição para a página main.jsp, encaminhando as instância de request e response 
+                        rd.forward(request, response);
+                        } else {
+                            request.setAttribute("mensagem", "Login ou Senha incorreta"); // coloca uma mensagem no objeto request
+                            RequestDispatcher rd = request.getRequestDispatcher("login.jsp"); // despacha a requisição para a página index.jsp, encaminhando as instância de request e response
+                            rd.forward(request, response);
+                        }
+                
     }
 
 }

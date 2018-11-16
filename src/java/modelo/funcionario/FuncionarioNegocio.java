@@ -25,4 +25,16 @@ public class FuncionarioNegocio {
             FuncionarioDAO dao = new FuncionarioDAO();
             return dao.excluirFuncionario(login_funcionario);
         }
+        
+        public boolean loginFuncionario(String login_funcionario, String senha_funcionario){
+            FuncionarioDAO dao = new FuncionarioDAO();
+            Funcionario funcionario = dao.obterFuncionario(login_funcionario);
+            return (funcionario!= null && funcionario.getSenha_funcionario().equals(senha_funcionario));
+        }
+        
+        public Funcionario obterFuncionario(String login_funcionario){
+            FuncionarioDAO dao = new FuncionarioDAO();
+            Funcionario funcionario = dao.obterFuncionario(login_funcionario);
+            return funcionario;
+        }
 }

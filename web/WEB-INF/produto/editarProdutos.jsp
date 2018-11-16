@@ -16,6 +16,7 @@
     ProdutoDAO daop = new ProdutoDAO();
     Produto p = daop.obterProduto(idp);
     CategoriaDAO dao = new CategoriaDAO();
+    String nomeArquivo = (String) request.getAttribute("nomeArquivo");
     List<Categoria> categorias = dao.obterTodasCategorias();
    // Categoria categoria = new Categoria();
     if (categorias != null) {
@@ -54,14 +55,22 @@
         <%
             }
         %>
+        <form action="alterarImagemServlet?idp=<%=idp%>" enctype="multipart/form-data" method="post">
+            <p>Imagem do produto:</p>
+            <p><input type="file" name="image" accept=".jpg"/></p> 
+            <p><input class="btn" type="submit" value="Carregar"/></p>
+        </form>
         
         <form action="AlterarProdutoServlet">
+            <p><input class="form-control" type="text" name="nomeArquivo" value="<%=nomeArquivo%>"/></p>
             <p><b>Id: </b></p>
             <p><input class="form-control" type="number" readonly="true" value="<%=idp%>" name="idp"/></p>
             <p><b>Nome do produto:</b><%=p.getNome_produto() %></p>
-            <p><input class="form-control" type="text" name="nome_produto"/></p>
+            <p><input class="form-control" type="text" name="nome_produto" value="<%=p.getNome_produto() %>"/></p>
+            <p><b>Descrição do produto:</b></p>
+            <p><input class="form-control" type="text" name="descricao_produto" value="<%=p.getDescricao_produto() %>"/></p>
             <p><b>Preço do produto: </b> R$ <%=p.getPreco_produto()%></p>
-            <p><input class="form-control" type="number" name="preco_produto" step="0.01"/></p>
+            <p><input class="form-control" type="number" name="preco_produto" step="0.01" value="<%=p.getPreco_produto()%>"/></p>
             <p><b>Categoria do produto:</b></p>
             <p><select class="form-control" name="id_categoria">
             <%

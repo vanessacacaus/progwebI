@@ -19,6 +19,7 @@
         <title>Excluir dados</title>
     </head>
     <body> 
+        
         <header>
             <div class="cabecalho">
             <h1> <img src="icons/car.png"> Ecommerce</h1>
@@ -34,8 +35,9 @@
             </ul>
         </nav>
         </header>
+        <div class="container borda"> 
         <form action="ExcluirUsuarioServlet" method="post">
-            <h1>Excluir usuário</h1>
+            <h1 class="conteudo"><img src="icons/bin.png"> Excluir usuário</h1>
         <%
             String mensagem = (String) request.getAttribute("mensagem");
             if (mensagem != null) {
@@ -45,14 +47,13 @@
             }
         %>
             
-            <h1>Login: <%= login %></h1>
-            <div>Nome: <%= nome %>:</div><br>
-            <div>Digite a senha para excluir:</div>
-            <div><input type="password" name="senha" /></div>
-            <div><input type="submit" value="Excluir" /></div>
+        <p><b>Login: </b><%= login %></p>
+        <p><b>Nome: </b><%= nome %>:</p><br>
+            <p>Digite a senha para excluir:</p>
+            <p><input class="form-control" type="password" name="senha" /></p>
+            <p><input class="btn" type="submit" value="Excluir" /></p>
         </form>
-            
-        <h2><a href="LogoutServlet">Sair</a></h2>
+        </div>
     </body>
 </html>
 <%

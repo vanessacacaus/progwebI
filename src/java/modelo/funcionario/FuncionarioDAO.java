@@ -50,7 +50,7 @@ public class FuncionarioDAO {
         try {
             Class.forName("org.postgresql.Driver");
             Connection connection = DriverManager.getConnection(JDBC_URL, JDBC_USUARIO, JDBC_SENHA);
-            PreparedStatement preparedStatement = connection.prepareCall("SELECT nome_funcionario, senha_funcionario, salario_funcionario,login_funcionario FROM funcionario WHERE login_funcionario = ?");
+            PreparedStatement preparedStatement = connection.prepareCall("SELECT nome_funcionario, senha_funcionario, salario_funcionario, login_funcionario FROM funcionario WHERE login_funcionario = ?");
             preparedStatement.setString(1, login_funcionario);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {

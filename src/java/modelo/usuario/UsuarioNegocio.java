@@ -66,4 +66,11 @@ public class UsuarioNegocio {
         }
     }
     
+    public Usuario obterUsuario(String login){
+        UsuarioDAO dao = new UsuarioDAO();
+        Usuario usuario = new Usuario();
+        usuario = dao.obterUsuario(login);
+        return usuario;
+    }
+    
 }

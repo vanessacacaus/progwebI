@@ -34,7 +34,7 @@ public class LogoutServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.invalidate();
             request.setAttribute("mensagem", "Você encerrou sua sessão"); // coloca uma mensagem no objeto request
-            RequestDispatcher rd = request.getRequestDispatcher("index.jsp"); // despacha a requisição para a página index.jsp, encaminhando as instância de request e response
+            RequestDispatcher rd = request.getRequestDispatcher("login.jsp"); // despacha a requisição para a página index.jsp, encaminhando as instância de request e response
             rd.forward(request, response);
     }
 

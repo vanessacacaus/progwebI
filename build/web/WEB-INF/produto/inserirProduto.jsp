@@ -11,6 +11,7 @@
 <%
     CategoriaDAO dao = new CategoriaDAO();
     List<Categoria> categorias = dao.obterTodasCategorias();
+    String nomeArquivo = (String) request.getAttribute("nomeArquivo");
    // Categoria categoria = new Categoria();
     if (categorias != null) {
 %>
@@ -49,11 +50,20 @@
         <%
             }
         %>
+        <form action="uploadImagemServlet" enctype="multipart/form-data" method="post">
+            <p>Imagem do produto:</p>
+            <p><input type="file" name="image" accept=".jpg"/></p> 
+            <p><input class="btn" type="submit" value="Carregar"/></p>
+        </form>
+            
         <form action="InserirProdutoServlet">
+            <p><input class="form-control" type="text" name="nomeArquivo" value="<%=nomeArquivo%>"/></p>
             <p>Nome do produto:</p>
-            <p><input class="form-control" type="text" name="nome"/></p>
+            <p><input class="form-control" type="text" name="nome" value=""/></p>
+            <p>Descrição do produto:</p>
+            <p><input class="form-control" type="text" name="descricao_produto" value=""/></p>
             <p>Preço:</p>
-            <p><input class="form-control" type="number" name="preco" step="0.01"/></p>
+            <p><input class="form-control" type="number" name="preco" step="0.01" value="0"/></p>
             <p><select class="form-control" name="id">
             <%
             for(Categoria categoria: categorias){

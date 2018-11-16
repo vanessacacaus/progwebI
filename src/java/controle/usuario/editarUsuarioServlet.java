@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import modelo.funcionario.Funcionario;
+import modelo.funcionario.FuncionarioDAO;
+import modelo.funcionario.FuncionarioNegocio;
 import modelo.usuario.Usuario;
 import modelo.usuario.UsuarioDAO;
 import modelo.usuario.UsuarioNegocio;
@@ -37,15 +40,29 @@ public class editarUsuarioServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 
                 String login = (String) session.getAttribute("login");
+                String tipo = (String) session.getAttribute("tipo");
+                
                     UsuarioDAO dao = new UsuarioDAO();
                     Usuario usuario = new Usuario();
                     UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+                    
+                    FuncionarioDAO daoF = new FuncionarioDAO();
+                    Funcionario funcionario = new Funcionario();
+                    FuncionarioNegocio funcionarioNegocio = new FuncionarioNegocio();
                                         
                     String nomeNovo = request.getParameter("nome");
                     String senhaTeste = request.getParameter("senha");
+                    
                 
                     boolean sucessoAlterar = usuarioNegocio.alterarUsuario(nomeNovo, login, senhaTeste);
+                    boolean sucessoAlterarFuncionario = funcionarioNegocio.alterarFuncionario(nomeNovo, login, senhaTeste, funcionario.getSalario_funcionario());
+                    
                     if (sucessoAlterar) { // caso o login e senha estejam corretos
+                        request.setAttribute("mensagem", "Sucesso ao atualizar"); 
+                        session.setAttribute("nome", nomeNovo);
+                        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/usuario/meusDados.jsp"); // despacha a requisição para a página main.jsp, encaminhando as instância de request e response 
+                        rd.forward(request, response);
+                    }else if (sucessoAlterarFuncionario) { // caso o login e senha estejam corretos
                         request.setAttribute("mensagem", "Sucesso ao atualizar"); 
                         session.setAttribute("nome", nomeNovo);
                         RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/usuario/meusDados.jsp"); // despacha a requisição para a página main.jsp, encaminhando as instância de request e response 

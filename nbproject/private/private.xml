@@ -3,44 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/categoria/chamarListaCategoriasServlet.java</file>
+            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/modelo/produto/Produto.java</file>
             <file>file:/C:/Users/vanes/Documents/Ecommerce/web/WEB-INF/produto/inserirProduto.jsp</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/web/WEB-INF/usuario/excluirUsuario.jsp</file>
+            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/modelo/produto/ProdutoDAO.java</file>
+            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/produto/AlterarProdutoServlet.java</file>
             <file>file:/C:/Users/vanes/Documents/Ecommerce/web/WEB-INF/produto/editarProdutos.jsp</file>
             <file>file:/C:/Users/vanes/Documents/Ecommerce/web/index.jsp</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/usuario/LogoutServlet.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/produto/InserirProdutoServlet.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/modelo/categoria/CategoriaDAO.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/usuario/chamaMainServlet.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/funcionario/chamaInserirFuncionarioServlet.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/web/WEB-INF/produto/listaProdutos.jsp</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/web/WEB-INF/usuario/meusDados.jsp</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/produto/ExcluirProdutoServlet.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/funcionario/AlterarFuncionarioServlet.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/modelo/usuario/UsuarioNegocio.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/categoria/ExcluirCategoriaServlet.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/web/WEB-INF/funcionario/editarFuncionario.jsp</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/web/css/header.css</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/categoria/InserirCategoriaServlet.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/funcionario/InserirFuncionarioServlet.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/produto/chamarEditarProdutoServlet.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/web/WEB-INF/categoria/inserirCategoria.jsp</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/categoria/EditarCategoriaServlet.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/web/WEB-INF/funcionario/listaFuncionarios.jsp</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/categoria/chamarEditarCategoriaServlet.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/usuario/editarDados.java</file>
+            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/modelo/produto/ProdutoNegocio.java</file>
             <file>file:/C:/Users/vanes/Documents/Ecommerce/web/WEB-INF/usuario/main.jsp</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/web/WEB-INF/categoria/listaCategorias.jsp</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/usuario/LoginServlet.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/web/WEB-INF/usuario/editarDados.jsp</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/modelo/categoria/CategoriaNegocio.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/web/cadastroUsuario.jsp</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/categoria/chamarInserirCategoriaServlet.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/web/WEB-INF/categoria/editarCategoria.jsp</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/usuario/meusDadosServlet.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/web/listaProdutosCliente.jsp</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/produto/AlterarProdutoServlet.java</file>
-            <file>file:/C:/Users/vanes/Documents/Ecommerce/web/WEB-INF/funcionario/inserirFuncionario.jsp</file>
+            <file>file:/C:/Users/vanes/Documents/Ecommerce/web/login.jsp</file>
+            <file>file:/C:/Users/vanes/Documents/Ecommerce/web/meuCarrinho.jsp</file>
+            <file>file:/C:/Users/vanes/Documents/Ecommerce/src/java/controle/produto/InserirProdutoServlet.java</file>
         </group>
     </open-files>
 </project-private>

@@ -33,20 +33,22 @@ public class AlterarProdutoServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
                 String nome_produto = request.getParameter("nome_produto");
+                String descricao_produto = request.getParameter("descricao_produto");
                 double preco_produto = Double.parseDouble(request.getParameter("preco_produto"));
                 int id_categoria = Integer.parseInt(request.getParameter("id_categoria"));
                 int idp = Integer.parseInt(request.getParameter("idp"));
+                String imagem_produto = request.getParameter("nomeArquivo");
                 
                 ProdutoNegocio produtoNegocio = new ProdutoNegocio();
                 
-                boolean sucessoAlterar = produtoNegocio.alterarProduto(idp, nome_produto, preco_produto, id_categoria);
+                boolean sucessoAlterar = produtoNegocio.alterarProduto(idp, nome_produto, preco_produto, id_categoria, imagem_produto, descricao_produto);
                 if (sucessoAlterar) { 
                     request.setAttribute("mensagem", "Produto alterado com sucesso");
-                    RequestDispatcher rd = request.getRequestDispatcher("listaProdutos.jsp"); 
+                    RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/produto/listaProdutos.jsp"); 
                     rd.forward(request, response);
                 } else {
                     request.setAttribute("mensagem", "Erro ao alterar produto"); 
-                    RequestDispatcher rd = request.getRequestDispatcher("alterarProduto.jsp"); 
+                    RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/produto/alterarProduto.jsp"); 
                     rd.forward(request, response);
                 } 
                 

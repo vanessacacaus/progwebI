@@ -38,7 +38,7 @@
         </header>
         <div class="container borda">
         <form action="editarUsuarioServlet" method="post">
-            <h1 class="conteudo">Editar dados</h1>
+            <h1 class="conteudo"><img src="icons/config.png"> Editar dados</h1>
             
             <p><b>Login: <%= login %></b></p>
             <p><b>Nome Atual:</b> <%= nome %>:</p>
@@ -64,7 +64,7 @@
 <%
     } else {
         request.setAttribute("mensagem", "Erro ao passar login");
-        RequestDispatcher rd = request.getRequestDispatcher("meusDados.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("meusDadosServlet");
         rd.forward(request, response);
     }
 %>
