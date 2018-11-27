@@ -31,11 +31,11 @@ public class RemoverCarrinhoServlet extends HttpServlet {
      */
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        String login = request.getParameter("login");        
         int id_produto = Integer.parseInt(request.getParameter("id_produto"));
         
-        Cookie cookie = null;
-        Cookie[] cookies = request.getCookies();
+        Cookie cookie = null; //cria o cookie nulo
+        Cookie[] cookies = request.getCookies(); //cria um vetor de cookies para pegar todos os cookies existentes
         for(int i = 0; cookies != null && i < cookies.length; i++){
             Cookie c = cookies[i];
             if(c.getName().equals("pw1.cc")){
@@ -45,19 +45,22 @@ public class RemoverCarrinhoServlet extends HttpServlet {
         }
         
         String cookieValor = "";
-        
-        if(cookieValor == null){
+        //cria string vazia
+        if(cookie == null){ //se cookie for nulo ele cria o cookie passando a string vazia. 
             cookie = new Cookie("pw1.cc", cookieValor);
         }
         else{
-            cookieValor = cookie.getValue();
+            cookieValor = cookie.getValue(); //se não for nulo, ele coloca a string dentro do cookie
         }
         
         cookieValor = CarrinhoNegocio.removerProduto(cookieValor, id_produto);
+        cookie.setValue(cookieValor);
         cookie.setMaxAge(Integer.MAX_VALUE);
         
         response.addCookie(cookie);
         
+        request.setAttribute("login", login);
+        request.setAttribute("msg", "success");
         request.setAttribute("mensagem", "produto removido do carrinho de compras");
         request.getRequestDispatcher("InicioServlet").forward(request, response);
         response.sendRedirect("InicioServlet");

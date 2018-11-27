@@ -9,12 +9,12 @@
 <html>
     <head>
         <link type="text/css" rel="stylesheet" href="css/header.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="css/css/bootstrap.min.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastrar funcionario</title>
     </head>
     <body>
+    <!-------------------------------menu-funcionario------------------------------->
         <header>
             <div class="cabecalho">
             <h1> <img src="icons/car.png"> Ecommerce</h1>
@@ -26,10 +26,12 @@
             <li class="col"><a href="chamarListaCategoriasServlet">Categorias</a></li>
             <li class="col"><a href="chamarListarProdutosServlet">Produtos</a></li>
             <li class="col"><a href="chamarListaFuncionariosServlet">Funcionarios</a></li>
+            <li class="col"><a href="chamaListaPedidos">Pedidos</a></li>
             <li class="col"><a href="LogoutServlet">Sair</a></li>
             </ul>
         </nav>
         </header>
+    <!-------------------------------menu-funcionario------------------------------->
         <div class="container borda">
         <h1 class="conteudo"><img src="icons/meeting.png"> Cadastro funcionário</h1>
         <%

@@ -8,19 +8,28 @@
 <%
     String login = (String) session.getAttribute("login");
     String nome = (String) session.getAttribute("nome");
+    String tipo = (String) session.getAttribute("tipo");
     if (login != null) {
 %>
 <!DOCTYPE html>
 <html>
     <head>
         <link type="text/css" rel="stylesheet" href="css/header.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/css/bootstrap.min.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Excluir dados</title>
     </head>
     <body> 
-        
-        <header>
+      
+    <!-----------------------------------------------------------------------------------
+                                    Header inicia aqui
+    ------------------------------------------------------------------------------------>
+    
+    <%
+        if(tipo.equals("funcionario")){
+    %>
+    <!-------------------------------menu-funcionario------------------------------->
+       <header>
             <div class="cabecalho">
             <h1> <img src="icons/car.png"> Ecommerce</h1>
             </div>
@@ -31,10 +40,48 @@
             <li class="col"><a href="chamarListaCategoriasServlet">Categorias</a></li>
             <li class="col"><a href="chamarListarProdutosServlet">Produtos</a></li>
             <li class="col"><a href="chamarListaFuncionariosServlet">Funcionarios</a></li>
+            <li class="col"><a href="chamarListaUsuariosServlet">Usuarios</a></li>
+            <li class="col"><a href="chamaListaPedidos">Pedidos</a></li>
             <li class="col"><a href="LogoutServlet">Sair</a></li>
             </ul>
         </nav>
         </header>
+    <!-------------------------------menu-funcionario------------------------------->
+    <%
+        }
+    %>
+    <%
+        if(tipo.equals("usuario")){
+    %>
+           <!-------------------------menu cliente------------------------------>
+        <header>
+            <div class="cabecalho">
+            <h1> <img src="icons/car.png"> Ecommerce</h1>
+            </div>
+        <nav class="navbar navbar-light" style="background-color: #e5759b;">
+            <ul class="row">
+            <li class="col"><a href="chamaMainServlet">Index</a></li>
+            <li class="col"><a href="meusDadosServlet">Dados</a></li>
+            <li class="col"><a href="chamaMeusPedidos">Meus Pedidos</a></li>
+            <li class="col"><a href="VerCarrinhoServlet?login="<%=login%>><img src="icons/shopping.png"></a></li>
+            <li class="col"><a href="LogoutServlet">Sair</a></li>
+        </ul>
+        </nav>
+        </header>
+            <!-------------------------menu cliente------------------------------>
+    <%
+        }
+    %>
+    
+    
+    
+    
+    
+    <!---------------------------------------------------------------------------
+    Header acaba aqui
+    ------------------------------------------------------------------------------------>
+    
+      
         <div class="container borda"> 
         <form action="ExcluirUsuarioServlet" method="post">
             <h1 class="conteudo"><img src="icons/bin.png"> Excluir usuário</h1>

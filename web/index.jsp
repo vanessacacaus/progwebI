@@ -2,7 +2,7 @@
     Document   : verCategorias
     Created on : 30/09/2018, 16:07:14
     Author     : Vanessa Cacau
-    Co-Authores  : Leonardo Moreira, Amanda Lima
+    Co-Authors  : Leonardo Moreira, Amanda Lima
 --%>
 
 <%@page import="modelo.carrinho.CarrinhoComprasItem"%>
@@ -23,11 +23,12 @@
 <html>
     <head>
         <link type="text/css" rel="stylesheet" href="css/header.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/css/bootstrap.min.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ecommerce</title>
     </head>
     <body>
+        <!------------------------------header deslogado------------------------------------->
         <header>
             <div class="cabecalho">
             <h1> <img src="icons/car.png"> Ecommerce</h1>
@@ -36,47 +37,66 @@
                 <ul class="row">
                     <li class="col"><a href="index.jsp">Index</a></li>
                     <li class="col"><a href="login.jsp">Login</a></li>
-                    <li class="col"><a href="VerCarrinhoServlet"><img src="icons/shopping.png"></a></li>
+                    <li class="col"><a href="VerCarrinhoServlet"><img class="sacola" src="icons/shopping.png"></a></li>
                 </ul>
             </nav>
         </header>
-        <div class="container borda">
-        <h1 class="conteudo"><img src="icons/price.png"> Produtos</h1>
+        <!------------------------------header deslogado------------------------------------->
+        
+        <!----------------------inicio mensagem-------------------------------->
         <%
             String mensagem = (String) request.getAttribute("mensagem");
-            if (mensagem != null) {
+            String msg = (String) request.getAttribute("msg");
+            if (mensagem != null && msg.equals("success")) {
         %>
         <div class="alert alert-success" role="alert">
             <b><%= mensagem%></b>
         </div>
         <%
-            }
+            } else if(mensagem != null && msg.equals("danger")) {
         %>
+        <div class="alert alert-danger" role="alert">
+            <b><%= mensagem%></b>
+        </div>
+        <%
+        }
+        %>
+        <!----------------------fim mensagem-------------------------------->
+        
+        <div class="container borda">
+        <h1 class="conteudo"><img src="icons/price.png"> Produtos</h1>        
+        
         <%
         for(Produto produto: produtos){
         %>
         <% Categoria categoria = daoc.obterCategoria(produto.getId_categoria()); %>
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="imgProdutos/<%=produto.getImagem_produto()%>" alt="<%= produto.getNome_produto() %>">
-                <div class="card-body">
-                    <h5 class="card-title"><b>Cod: 000<%= produto.getId_produto() %> - <%= produto.getNome_produto() %></b></h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <p>R$ <%= produto.getPreco_produto() %> - <i><%=categoria.getCategoria_descricao() %></i></p>
-                  
-                  <form action="AdicionarCarrinhoServlet">
-                      <p><input type="hidden" name="id_produto" value="<%= produto.getId_produto()%>"></p>
-                      <p>Unidade(s): <input type="number" name="quantidade" step="1" value="1"/></p>
-                      <p><input class="btn" type="submit" value="Adicionar"/></p>
-                  </form>
-                </div>
-            </div>
-            
-
-        </ul>
         
+        
+        <!-----------------------------card-produtos---------------------------------->
+        <div class="larguraProds">
+            <h5 class="card-header bg-transparent bordinha row"><b>Cod: 000<%= produto.getId_produto() %> - <%= produto.getNome_produto() %></b></h5>
+        <div class="card-body bg-transparent bordinha row">
+            <img class="produtos imgProd" src="imgProdutos/<%=produto.getImagem_produto()%>" alt="<%= produto.getNome_produto() %>">
+                <div class="col-6"><%= produto.getDescricao_produto() %></div>
+                <div class="col-2">R$ <%= produto.getPreco_produto() %></div>
+                <div class="col-2"><i><%=categoria.getCategoria_descricao() %></i></div>
+        </div> 
+        <div class="card-footer bg-transparent bordinha row">
+                  <form action="AdicionarCarrinhoServlet">
+                      <input type="hidden" name="id_produto" value="<%= produto.getId_produto()%>">
+                      Unidade(s): <input type="number" name="quantidade" step="1" value="1"/>
+                      <input class="btn" type="submit" value="Adicionar"/>
+                  </form>
+        </div>
+        </div> 
+        <br>
+        <!-----------------------------card-produtos---------------------------------->
+
         <%
         }
         %>
+        
+        
         </div>
     </body>
 </html>

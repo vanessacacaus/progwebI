@@ -61,6 +61,7 @@ public class LoginServlet extends HttpServlet {
                         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/usuario/main.jsp"); // despacha a requisição para a página main.jsp, encaminhando as instância de request e response 
                         rd.forward(request, response);
                         } else {
+                        request.setAttribute("msg", "danger");
                             request.setAttribute("mensagem", "Login ou Senha incorreta"); // coloca uma mensagem no objeto request
                             RequestDispatcher rd = request.getRequestDispatcher("login.jsp"); // despacha a requisição para a página index.jsp, encaminhando as instância de request e response
                             rd.forward(request, response);

@@ -66,6 +66,11 @@ public class UsuarioNegocio {
         }
     }
     
+    public boolean excluirUsuarioFuncionario(String login){
+        UsuarioDAO dao = new UsuarioDAO();
+        return dao.excluirUsuario(login);
+    }
+    
     public Usuario obterUsuario(String login){
         UsuarioDAO dao = new UsuarioDAO();
         Usuario usuario = new Usuario();

@@ -43,17 +43,20 @@ public class cadastroUsuarioServlet extends HttpServlet {
             boolean sucessoInserir = usuarioNegocio.inserirUsuario(nome, login, senha);
 
             if(erroInserir){
+                request.setAttribute("msg", "danger");
                 request.setAttribute("mensagem", "Usuario já existe, escolha outro login");
                 RequestDispatcher rd = request.getRequestDispatcher("cadastroUsuario.jsp");
                 rd.forward(request, response);
             } else {
                 if(sucessoInserir){
+                    request.setAttribute("msg", "success");
                     request.setAttribute("mensagem", "Usuario inserido com sucesso.");
-                    RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
                     rd.forward(request, response);
                 } else {
+                    request.setAttribute("msg", "danger");
                     request.setAttribute("mensagem", "Não foi possível inserir o usuário");
-                    RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/usuario/cadastroUsuario.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("cadastroUsuario.jsp");
                     rd.forward(request, response);
                 }
             }

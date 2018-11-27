@@ -30,8 +30,10 @@ public class AdicionarCarrinhoServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void service(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        throws ServletException, IOException {
+        String login = request.getParameter("login");
+
+                
         int id_produto = Integer.parseInt(request.getParameter("id_produto"));
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         
@@ -61,7 +63,8 @@ public class AdicionarCarrinhoServlet extends HttpServlet {
         
         response.addCookie(cookie);
         
-        
+        request.setAttribute("login", login);
+        request.setAttribute("msg", "success");
         request.setAttribute("mensagem", "produto adicionado ao carrinho de compras");
         request.getRequestDispatcher("InicioServlet").forward(request, response);
     }

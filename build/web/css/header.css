@@ -23,6 +23,18 @@ cinza médio afafaf*/
     border: 1px dashed #e5759b;
     margin-bottom: 10%;
     padding-bottom: 5%;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.bordinha {
+    border: 1px solid #e5759b;
+}
+
+.produtos {
+    width: 50%;
+    height: 50%;
+    align-items: center;
 }
 
 header {
@@ -37,6 +49,11 @@ header {
     margin: 0 auto;
     color: white;
     padding: 2%;
+}
+
+.imgProd {
+    max-width: 50px;
+    max-height: 50px;
 }
 
 h1.conteudo {
@@ -88,4 +105,10 @@ nav li {
         padding: 1%;
         text-align: center;
         display: inline;
+}
+
+imgProd {
+    width: 100px;
+    height: 100px;
+    margin: 10%;
 }

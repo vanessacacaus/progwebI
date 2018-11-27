@@ -148,6 +148,38 @@
         <servlet-name>alterarImagemServlet</servlet-name>
         <servlet-class>arquivos.produto.alterarImagemServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VendaServlet</servlet-name>
+        <servlet-class>controle.venda.VendaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ApagarCarrinhoServlet</servlet-name>
+        <servlet-class>controle.carrinho.ApagarCarrinhoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>chamaMeusPedidos</servlet-name>
+        <servlet-class>controle.venda.chamaMeusPedidos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CancelaVendaServlet</servlet-name>
+        <servlet-class>controle.venda.CancelaVendaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>chamaListaPedidos</servlet-name>
+        <servlet-class>controle.venda.chamaListaPedidos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CarregarProdutosVendaServlet</servlet-name>
+        <servlet-class>controle.venda.CarregarProdutosVendaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>chamarListaUsuariosServlet</servlet-name>
+        <servlet-class>controle.funcionario.chamarListaUsuariosServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirUsuarioFuncionarioServlet</servlet-name>
+        <servlet-class>controle.usuario.ExcluirUsuarioFuncionarioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -295,6 +327,38 @@
     <servlet-mapping>
         <servlet-name>alterarImagemServlet</servlet-name>
         <url-pattern>/alterarImagemServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendaServlet</servlet-name>
+        <url-pattern>/VendaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ApagarCarrinhoServlet</servlet-name>
+        <url-pattern>/ApagarCarrinhoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>chamaMeusPedidos</servlet-name>
+        <url-pattern>/chamaMeusPedidos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CancelaVendaServlet</servlet-name>
+        <url-pattern>/CancelaVendaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>chamaListaPedidos</servlet-name>
+        <url-pattern>/chamaListaPedidos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CarregarProdutosVendaServlet</servlet-name>
+        <url-pattern>/CarregarProdutosVendaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>chamarListaUsuariosServlet</servlet-name>
+        <url-pattern>/chamarListaUsuariosServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirUsuarioFuncionarioServlet</servlet-name>
+        <url-pattern>/ExcluirUsuarioFuncionarioServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -30,8 +30,7 @@ public class chamarListaFuncionariosServlet extends HttpServlet {
      */
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/funcionario/listaFuncionarios.jsp"); // despacha a requisição para a página index.jsp, encaminhando as instância de request e response
+                RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/funcionario/listaFuncionarios.jsp"); // despacha a requisição para a página index.jsp, encaminhando as instância de request e response
                 rd.forward(request, response);
     }
 

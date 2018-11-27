@@ -35,12 +35,12 @@ public class InicioServlet extends HttpServlet {
      */
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+
         ProdutoNegocio produtoNegocio = new ProdutoNegocio();
         List<Produto> produtos = produtoNegocio.obterProdutos();
-        request.setAttribute("produtos", produtos);
+        request.setAttribute("produtos", produtos);//lista os produtos
         
-        String cookieValor = "";
+        String cookieValor = ""; //cria a string pra capturar o cookie da página
         
         Cookie[] cookies = request.getCookies();
         for(int i = 0; cookies != null && i < cookies.length; i++){
@@ -52,8 +52,7 @@ public class InicioServlet extends HttpServlet {
         }
         
         List<CarrinhoComprasItem> carrinhoCompras = CarrinhoNegocio.obterCarrinhoCompras(cookieValor);
-        request.setAttribute("carrinhoCompras", carrinhoCompras);
-        
+        request.setAttribute("carrinhoCompras", carrinhoCompras);      
         request.getRequestDispatcher("VerCarrinhoServlet").forward(request, response);
     }
 

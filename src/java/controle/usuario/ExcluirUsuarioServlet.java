@@ -31,7 +31,6 @@ public class ExcluirUsuarioServlet extends HttpServlet {
      */
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
             HttpSession session = request.getSession();
             String login = (String) session.getAttribute("login");
             String senha = (String) request.getParameter("senha");
@@ -39,10 +38,12 @@ public class ExcluirUsuarioServlet extends HttpServlet {
             UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
             boolean sucessoExcluir = usuarioNegocio.excluirUsuario(login, senha);
                      if (sucessoExcluir) { // caso o login e senha estejam corretos
+                        request.setAttribute("msg", "success");
                         request.setAttribute("mensagem", "Sucesso ao excluir"); 
                         RequestDispatcher rd = request.getRequestDispatcher("index.jsp"); // despacha a requisição para a página main.jsp, encaminhando as instância de request e response 
                         rd.forward(request, response);
                     } else {
+                        request.setAttribute("msg", "danger");
                         request.setAttribute("mensagem", "Erro ao excluir"); // coloca uma mensagem no objeto request
                         RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/usuario/meusDados.jsp"); // despacha a requisição para a página index.jsp, encaminhando as instância de request e response
                         rd.forward(request, response);

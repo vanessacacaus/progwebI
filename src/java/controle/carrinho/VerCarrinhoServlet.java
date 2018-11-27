@@ -33,6 +33,8 @@ public class VerCarrinhoServlet extends HttpServlet {
      */
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        //captura a string do cookie presente e mostra
         String cookieValor = "";
         
         Cookie[] cookies = request.getCookies();
@@ -46,8 +48,8 @@ public class VerCarrinhoServlet extends HttpServlet {
         
         List<CarrinhoComprasItem> carrinhoCompras = CarrinhoNegocio.obterCarrinhoCompras(cookieValor);
         request.setAttribute("carrinhoCompras", carrinhoCompras);
-        
-        request.getRequestDispatcher("meuCarrinho.jsp").forward(request, response);    
+        request.getRequestDispatcher("WEB-INF/usuario/carrinhoLogado.jsp").forward(request, response);    
+
     }
 
 }

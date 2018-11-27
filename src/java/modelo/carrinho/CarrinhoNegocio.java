@@ -16,12 +16,8 @@ import modelo.produto.ProdutoNegocio;
 public final class CarrinhoNegocio {
     private static final String SEPARADOR_REGISTRO = "SEPREG";
     private static final String SEPARADOR_CAMPOS = "SEPFI";
-
-    private CarrinhoNegocio() {
-
-    }
     
-    public static boolean existeProduto(String cookieValor, int produtoId){
+    public static boolean existeProduto(String cookieValor, int id_produto){
         if(cookieValor == null || cookieValor.trim().length() == 0) {
             return false;
         }
@@ -33,7 +29,7 @@ public final class CarrinhoNegocio {
         
         for(String p : produtos){
             String[] produto = p.split(SEPARADOR_CAMPOS);
-            if(Integer.parseInt(produto[0])== produtoId){
+            if(Integer.parseInt(produto[0])== id_produto){
                 return true;
             }
         }
@@ -93,24 +89,30 @@ public final class CarrinhoNegocio {
         return cookieValor;
     }
     
-    public static String removerProduto(String cookieValor, int produtoId){
+    public static String removerProduto(String cookieValor, int id_produto){
         if(cookieValor == null || cookieValor.trim().length() == 0){
             return "";
-        }else{
-            String[] produtos = cookieValor.split(SEPARADOR_REGISTRO);
-            cookieValor = "";
-            
-            for(String p: produtos){
-                String[] produto = p.split(SEPARADOR_CAMPOS);
-                if(cookieValor.trim().length() > 0){
-                    cookieValor = cookieValor + SEPARADOR_REGISTRO;
+        }
+        if(existeProduto(cookieValor, id_produto)){
+            if (!cookieValor.contains(SEPARADOR_REGISTRO)) { // só existe um produto
+                cookieValor = "";
+            } else {
+                String[] produtos = cookieValor.split(SEPARADOR_REGISTRO);
+                cookieValor = "";
+
+                for(String p: produtos){
+                    String[] produto = p.split(SEPARADOR_CAMPOS);
+                    if(cookieValor.trim().length() > 0){
+                        cookieValor = cookieValor + SEPARADOR_REGISTRO;
+                    }
+                    if(Integer.parseInt(produto[0]) != id_produto){
+                        cookieValor = cookieValor + (Integer.parseInt(produto[0]) + SEPARADOR_CAMPOS + Integer.parseInt(produto[1]));
+                    }
                 }
-                if(Integer.parseInt(produto[0]) != produtoId){
-                    cookieValor = cookieValor + (Integer.parseInt(produto[0]) + SEPARADOR_CAMPOS + Integer.parseInt(produto[1]));
-                }
-            }
         }
         
+        }
         return cookieValor;
     }
+
 }

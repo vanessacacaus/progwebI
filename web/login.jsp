@@ -9,13 +9,13 @@
 <html>
     <head>
         <link type="text/css" rel="stylesheet" href="css/header.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="css/css/bootstrap.min.css">
         <title>Página de Login</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>        
+    <body>   
+        <!----------------------------menu não logado inicio------------------------------------>
         <header>
             <div class="cabecalho">
             <h1> <img src="icons/car.png"> Ecommerce</h1>
@@ -28,18 +28,32 @@
                 </ul>
             </nav>
         </header>
+        <!----------------------------menu não logado fim------------------------------------>
+        
+        
         <div class="container borda">
         <h1 class="conteudo"> <img src="icons/user.png"> Login</h1>
-                <%
+
+        <!----------------------inicio mensagem-------------------------------->
+        <%
             String mensagem = (String) request.getAttribute("mensagem");
-            if (mensagem != null) {
+            String msg = (String) request.getAttribute("msg");
+            if (mensagem != null && msg.equals("success")) {
         %>
         <div class="alert alert-success" role="alert">
             <b><%= mensagem%></b>
         </div>
         <%
-            }
-        %> 
+            } else if(mensagem != null && msg.equals("danger")) {
+        %>
+        <div class="alert alert-danger" role="alert">
+            <b><%= mensagem%></b>
+        </div>
+        <%
+        }
+        %>
+        <!----------------------fim mensagem-------------------------------->
+        
         <form action="LoginServlet" method="post">
             <p>Nome de usuário:</p>
             <p><input class="form-control" type="text" name="login" /></p>

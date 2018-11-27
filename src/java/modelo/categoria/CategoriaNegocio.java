@@ -27,6 +27,11 @@ public class CategoriaNegocio {
     public boolean excluirCategoria(int id_categoria){
         CategoriaDAO dao = new CategoriaDAO();
         return dao.excluirCategoria(id_categoria);
-    }   
+    }  
+    
+    public Categoria obterCategoria(int id_categoria){
+        CategoriaDAO dao = new CategoriaDAO();
+        return dao.obterCategoria(id_categoria);
+    }
     
 }
